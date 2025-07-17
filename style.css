@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #696969;
+}
+
+.grid-container {
+  width: 80%;
+  max-width: 512px; /*note this*/
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid-item {
+  background-color: white;
+  border: 1px solid black; /* also this, width n height */
+  width: 31px; 
+  height: 31px;
+}

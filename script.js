@@ -4,8 +4,10 @@ document.body.appendChild(gridContainer)
 
 gridContainer.setAttribute("class", "grid-container")
 
-let gridNumber = 16
+let gridNumber = 100
 //gridItem.setAttribute("id", "grid-item")
+
+document.querySelector(".grid-container").style.maxWidth = "512px";
 
 for (i = 0; i < (gridNumber * gridNumber); i++){
   let gridItem = document.createElement("div")
@@ -17,14 +19,21 @@ for (i = 0; i < (gridNumber * gridNumber); i++){
 const gridItemEl = document.querySelectorAll(".grid-item")
 
 gridItemEl.forEach(element => {
+  element.style.width = (512 / gridNumber) + "px";
+  element.style.height = (512 / gridNumber) + "px";
+})
+
+gridItemEl.forEach(element => {
   element.addEventListener("mouseover", event =>{
-    event.target.classList.add("change")
+    event.target.style.backgroundColor = "black";
   });
 });
 
-/*gridItemEl.forEach(element => {
+/* 
+gridItemEl.forEach(element => {
   element.addEventListener("mouseout", event =>{
     event.target.classList.remove("change")
   });
-});*/
+});
+*/
 

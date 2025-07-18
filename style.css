@@ -10,7 +10,7 @@ body {
 
 .grid-container {
   width: 80%;
-  max-width: 512px; /*note this*/
+  max-width: 512px; /*note this: max-width = gridPixel * gridNumber*/
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -22,4 +22,8 @@ body {
   border: 1px solid black; /* also this, width n height */
   width: 31px; 
   height: 31px;
+}
+
+.change {
+  background-color: yellow;
 }

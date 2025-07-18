@@ -9,15 +9,12 @@ body {
 }
 
 .grid-container {
-  /*note this: max-width = gridPixel * gridNumber*/
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .grid-item {
   background-color: white;
   font-size: 0.5em;
-  /*border: 1px solid black; also this, width n height */
 }

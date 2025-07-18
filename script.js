@@ -1,11 +1,8 @@
+let gridNumber = 16
 let gridContainer = document.createElement("div")
 
 document.body.appendChild(gridContainer) 
-
 gridContainer.setAttribute("class", "grid-container")
-
-let gridNumber = 100
-//gridItem.setAttribute("id", "grid-item")
 
 document.querySelector(".grid-container").style.maxWidth = "512px";
 
@@ -21,6 +18,7 @@ const gridItemEl = document.querySelectorAll(".grid-item")
 gridItemEl.forEach(element => {
   element.style.width = (512 / gridNumber) + "px";
   element.style.height = (512 / gridNumber) + "px";
+  element.style.border = "0.5px solid black";
 })
 
 gridItemEl.forEach(element => {
@@ -28,12 +26,3 @@ gridItemEl.forEach(element => {
     event.target.style.backgroundColor = "black";
   });
 });
-
-/* 
-gridItemEl.forEach(element => {
-  element.addEventListener("mouseout", event =>{
-    event.target.classList.remove("change")
-  });
-});
-*/
-

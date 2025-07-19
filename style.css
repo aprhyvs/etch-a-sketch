@@ -8,6 +8,12 @@ body {
   background-color: #696969;
 }
 
+#set-btn {
+  margin: 1em auto;
+  display: block;
+  padding: 0.5em;
+}
+
 .grid-container {
   margin: 0 auto;
   display: flex;

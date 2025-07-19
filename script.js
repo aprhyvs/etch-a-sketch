@@ -2,6 +2,15 @@ let gridNumber = 16
 let gridContainer = document.createElement("div")
 let setBtn = document.createElement("button")
 
+//extra credit #1
+function rgb(){
+  let red = Math.floor(Math.random() * 256); 
+  let blue = Math.floor(Math.random() * 256); 
+  let green = Math.floor(Math.random() * 256);
+
+  return `rgb(${red}, ${blue}, ${green})`
+}
+
 document.body.append(setBtn)
 setBtn.setAttribute("id", "set-btn")
 
@@ -43,14 +52,14 @@ function setGrid(){
 
   gridItemEl.forEach(element => {
     element.addEventListener("mouseover", event =>{
-      event.target.style.backgroundColor = "black";
+      event.target.style.backgroundColor = rgb();
     });
   });
 } 
 
 function clearGrid(){
   let removeGrid = document.getElementsByClassName("grid-item")
-  console.log(`${removeGrid.length}x${removeGrid.length} grid removed`)
+  console.log(`${gridNumber}x${gridNumber} grid added`)
   while(removeGrid.length > 0){
     removeGrid[0].parentNode.removeChild(removeGrid[0]);
   }

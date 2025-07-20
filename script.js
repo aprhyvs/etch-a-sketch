@@ -1,16 +1,13 @@
 let gridNumber = 16
 let gridContainer = document.createElement("div")
 let setBtn = document.createElement("button")
-let minOpacity = 0.1
 
 //extra credit #1
 function rgb(){
   let red = Math.floor(Math.random() * 256); 
   let blue = Math.floor(Math.random() * 256); 
   let green = Math.floor(Math.random() * 256);
-
-// console.log(`rgb(${red}, ${blue}, ${green}, ${minOpacity})`)
-  return `rgb(${red}, ${blue}, ${green})`
+  return `rgb(${red}, ${blue}, ${green}`
 }
 
 document.body.append(setBtn)
@@ -59,28 +56,20 @@ function setGrid(){
     element.addEventListener("mouseenter", event =>{
       if (!event.target.classList.contains("rgb")){
         event.target.style.backgroundColor = rgb();
+        event.target.style.opacity = 0.1
+        event.target.classList.add("rgb");        
       } else {
-        console.log("this grid item already has a color")
-      }
-      
-      event.target.classList.add("rgb");        
-      
-      /* trying to implement darkening effect
-      element.addEventListener("mouseenter", event => {
-        event.target.style.opacity = minOpacity;
-        if(minOpacity < 1) {
-          minOpacity += 0.1;  
+        console.log("this already has a color")
+        console.log(`current color ` + event.target.style.backgroundColor)
+
+        //extra credit #2
+        if (event.target.style.opacity < 1){
+        console.log(`opacity check ` + event.target.style.opacity)
+        event.target.style.opacity = parseFloat(element.style.opacity) + 0.1; 
         }
-      });*/
+      }      
     });
   });
-
-  /*
-  if (gridItemEl.classList.contains("rgb  ")){
-    console.log("a element with rgb exists.")
-  } else {
-    console.log("nothing")
-  }*/
 } 
 
 function clearGrid(){
@@ -90,5 +79,4 @@ function clearGrid(){
     removeGrid[0].parentNode.removeChild(removeGrid[0]);
   }
 
-  minOpacity = 0.1
 }

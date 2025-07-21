@@ -2,23 +2,13 @@ let gridNumber = 16
 let gridContainer = document.createElement("div")
 let setBtn = document.createElement("button")
 
-//extra credit #1
-function rgb(){
-  let red = Math.floor(Math.random() * 256); 
-  let blue = Math.floor(Math.random() * 256); 
-  let green = Math.floor(Math.random() * 256);
-  return `rgb(${red}, ${blue}, ${green}`
-}
-
 document.body.append(setBtn)
 setBtn.setAttribute("id", "set-btn")
-
 const setBtnEl = document.getElementById("set-btn")
 setBtnEl.textContent = "Set grid"
 
 setBtnEl.addEventListener("click", () => {
-  let setGridNumber = prompt("enter number")
-  
+  let setGridNumber = prompt("enter number")  
   if (setGridNumber > 100){
     alert("no you can't do more than a 100")
   } else if (setGridNumber == 0 || setGridNumber == null){
@@ -29,11 +19,26 @@ setBtnEl.addEventListener("click", () => {
   }
 })
 
+//extra credit #1
+function rgb(){
+  let red = Math.floor(Math.random() * 256); 
+  let blue = Math.floor(Math.random() * 256); 
+  let green = Math.floor(Math.random() * 256);
+  return `rgb(${red}, ${blue}, ${green}`
+}
+
+function clearGrid(){
+  let removeGrid = document.getElementsByClassName("grid-item")
+  console.log(`${gridNumber}x${gridNumber} grid added`)
+  while(removeGrid.length > 0){
+    removeGrid[0].parentNode.removeChild(removeGrid[0]);
+  }
+}
+
 function setGrid(){
   clearGrid()
   document.body.appendChild(gridContainer) 
   gridContainer.setAttribute("class", "grid-container")
-
   document.querySelector(".grid-container").style.maxWidth = "512px";
 
   for (i = 0; i < (gridNumber * gridNumber); i++){
@@ -44,7 +49,6 @@ function setGrid(){
   }  
 
   const gridItemEl = document.querySelectorAll(".grid-item")
-  const rgbEl = document.querySelectorAll(".rgb")
 
   gridItemEl.forEach(element => {
     element.style.width = (512 / gridNumber) + "px";
@@ -72,11 +76,4 @@ function setGrid(){
   });
 } 
 
-function clearGrid(){
-  let removeGrid = document.getElementsByClassName("grid-item")
-  console.log(`${gridNumber}x${gridNumber} grid added`)
-  while(removeGrid.length > 0){
-    removeGrid[0].parentNode.removeChild(removeGrid[0]);
-  }
-
-}
+setGrid();

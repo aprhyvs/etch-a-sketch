@@ -22,9 +22,9 @@ setBtnEl.addEventListener("click", () => {
 //extra credit #1
 function rgb(){
   let red = Math.floor(Math.random() * 256); 
-  let blue = Math.floor(Math.random() * 256); 
-  let green = Math.floor(Math.random() * 256);
-  return `rgb(${red}, ${blue}, ${green}`
+  let green = Math.floor(Math.random() * 256); 
+  let blue = Math.floor(Math.random() * 256);
+  return `rgb(${red}, ${green}, ${blue}`
 }
 
 function clearGrid(){
@@ -62,15 +62,11 @@ function setGrid(){
         event.target.style.backgroundColor = rgb();
         event.target.style.opacity = 0.1
         event.target.classList.add("rgb");        
-      } else {
-        console.log("this already has a color")
-        console.log(`current color ` + event.target.style.backgroundColor)
-
-        //extra credit #2
-        if (event.target.style.opacity < 1){
+      } else if (event.target.style.opacity < 1){
         console.log(`opacity check ` + event.target.style.opacity)
         event.target.style.opacity = parseFloat(element.style.opacity) + 0.1; 
-        }
+      } else {
+        console.log(`color is full: ` + event.target.style.backgroundColor + ` ` + event.target.style.opacity)
       }      
     });
   });
